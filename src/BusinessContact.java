@@ -33,9 +33,9 @@ public class BusinessContact extends Contact {
 		this.company = company;
 	}
 
-	public void ViewContact() {
+	public void viewContact() {
 		System.out.println("Type: " + getContactType());
-		System.out.println("Name: " + getFirstName() + " " + getFirstName());
+		System.out.println("Name: " + getFirstName() + " " + getLastName());
 		System.out.println("Address: " + getAddress());
 		System.out.println("Phone: " + getPhone());
 		System.out.println("Email: " + getEmail());

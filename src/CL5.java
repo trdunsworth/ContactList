@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
@@ -8,7 +11,7 @@ import java.util.*;
  */
 
 public class CL5 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		List<Contact> contacts = new ArrayList<>();
 		//Contact contact;
@@ -35,27 +38,27 @@ public class CL5 {
 
       switch (choice) {
 	      case 1:
-		      Scanner pReader = new Scanner(System.in);
+		      BufferedReader pReader = new BufferedReader(new InputStreamReader(System.in));
 		      PersonalContact pContact = new PersonalContact(contactType, firstName, lastName, address, phone, email, birthDate);
 				  final String pType = pContact.getContactType();
 				  contactType = pType;
 				  System.out.println("\nEnter First Name: ");
-		      firstName = pReader.next();
+		      firstName = pReader.readLine();
 		      pContact.setFirstName(firstName);
 			    System.out.println("Enter Last Name: ");
-		      lastName = pReader.next();
+		      lastName = pReader.readLine();
 		      pContact.setLastName(lastName);
 		      System.out.println("Enter Address: ");
-		      address = pReader.next();
+		      address = pReader.readLine();
 		      pContact.setAddress(address);
 		      System.out.println("Enter Phone Number: ");
-		      phone = pReader.next();
+		      phone = pReader.readLine();
 		      pContact.setPhone(phone);
 		      System.out.println("Enter Email Address: ");
-		      email = pReader.next();
+		      email = pReader.readLine();
 		      pContact.setEmail(email);
 		      System.out.println("Enter Birthday: ");
-		      birthDate = pReader.next();
+		      birthDate = pReader.readLine();
 		      pContact.setBirthDate(birthDate);
 
 		      contacts.add(pContact);
@@ -63,30 +66,30 @@ public class CL5 {
 		      break;
 
 	      case 2:
-		      Scanner bReader = new Scanner(System.in);
+		      BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
 			    BusinessContact bContact = new BusinessContact(contactType,firstName, lastName, address, phone, email, position, company);
 			    final String bType = bContact.getContactType();
 			    contactType = bType;
 		      System.out.println("\nEnter First Name: ");
-		      firstName = bReader.next();
+		      firstName = bReader.readLine();
 		      bContact.setFirstName(firstName);
 		      System.out.println("Enter Last Name: ");
-		      lastName = bReader.next();
+		      lastName = bReader.readLine();
 		      bContact.setLastName(lastName);
 		      System.out.println("Enter Address: ");
-		      address = bReader.next();
+		      address = bReader.readLine();
 		      bContact.setAddress(address);
 		      System.out.println("Enter Phone Number: ");
-		      phone = bReader.next();
+		      phone = bReader.readLine();
 		      bContact.setPhone(phone);
 		      System.out.println("Enter Email Address: ");
-		      email = bReader.next();
+		      email = bReader.readLine();
 		      bContact.setEmail(email);
 		      System.out.println("Enter Job Title: ");
-		      position = bReader.next();
+		      position = bReader.readLine();
 		      bContact.setPosition(position);
 		      System.out.println("Enter Organization: ");
-		      company = bReader.next();
+		      company = bReader.readLine();
 		      bContact.setCompany(company);
 
 		      contacts.add(bContact);
@@ -101,19 +104,14 @@ public class CL5 {
 					}
 
 		      Scanner vReader = new Scanner(System.in);
+		      System.out.println("Enter the listed contact number for details.");
 
 		      int selection = vReader.nextInt();
 		      int viewIndex = selection - 1;
+		      Contact selContact = contacts.get(viewIndex);
+		      selContact.viewContact();
 
-		      while (vReader.hasNextInt()) {
-			      Contact selContact = contacts.get(viewIndex);
-			      if (selContact.getContactType().equals("Personal")) {
-					    selContact.viewContact();
-					  } else {
-						  selContact.viewContact();
-					  }
-		      }
-		      runs = false;
+		      runs = true;
 		      break;
 
 	      case 4:
