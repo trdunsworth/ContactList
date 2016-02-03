@@ -2,7 +2,7 @@
  * Created by tony.dunsworth on 1/28/2016.
  */
 public class PersonalContact extends Contact {
-	String birthDate;
+	private String birthDate;
 
 	public PersonalContact(String contactType, String firstName, String lastName, String address, String phone, String email, String birthDate) {
 		super(contactType,firstName, lastName, address, phone, email);

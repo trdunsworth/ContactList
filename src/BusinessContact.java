@@ -2,8 +2,8 @@
  * Created by Tony Dunsworth on 1/28/2016.
  */
 public class BusinessContact extends Contact {
-	String position;
-	String company;
+	private String position;
+	private String company;
 
 	public BusinessContact(String contactType, String firstName, String lastName, String address, String phone, String email, String position, String company) {
 		super(contactType, firstName, lastName, address, phone, email);
