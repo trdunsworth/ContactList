@@ -103,17 +103,17 @@ public class CL5 {
 		      Scanner vReader = new Scanner(System.in);
 
 		      int selection = vReader.nextInt();
+		      int viewIndex = selection - 1;
 
 		      while (vReader.hasNextInt()) {
-			      selection = selection - 1;
-			      Contact selContact = contacts.get(selection);
+			      Contact selContact = contacts.get(viewIndex);
 			      if (selContact.getContactType().equals("Personal")) {
-					  selContact.viewContact();
-				  } else {
-					 selContact.viewContact();
-				  }
+					    selContact.viewContact();
+					  } else {
+						  selContact.viewContact();
+					  }
 		      }
-		      runs = true;
+		      runs = false;
 		      break;
 
 	      case 4:
